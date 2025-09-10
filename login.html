@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internet hotspot - Log in</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- CHAP Authentication Form (Hidden) -->
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post" style="display: none">
+      <input type="hidden" name="username" />
+      <input type="hidden" name="password" />
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+    </form>
+
+    <script src="/md5.js"></script>
+    <script>
+      function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5("$(chap-id)" + document.login.password.value + "$(chap-challenge)");
+        document.sendin.submit();
+        return false;
+      }
+    </script>
+    $(endif)
+
+    <div class="ie-fixMinHeight">
+      <div class="main">
+        <div class="wrap animated fadeIn">
+          <!-- Main Login Form -->
+          <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            
+            <div class="container">
+              <div class="header">
+                <div class="con">
+                  <img src="img/logo-tkj.png" alt="Logo TKJ" />
+                </div>
+                <h2>Hotspot Login</h2>
+              </div>
+
+              <!-- Error Message Display -->
+              $(if error)
+              <div class="error-message" style="color: #ff4444; text-align: center; margin: 10px 0; padding: 10px; background: rgba(255,68,68,0.1); border-radius: 5px;">
+                <strong>Login Failed:</strong> $(error)
+              </div>
+              $(endif)
+
+              <div class="form">
+                <!-- Removed duplicate form tag -->
+                <div class="username-input">
+                  <input type="text" name="username" value="$(username)" id="username" placeholder="Username" required />
+                  <div id="user-cont" class="user">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user" style="width: 1.3rem;">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="password-input">
+                  <input type="password" name="password" id="password" placeholder="Password" required />
+                  <div id="eye-cont" class="eye-cont">
+                    <div id="eye-off">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off" style="width: 1.3rem">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                      </svg>
+                    </div>
+                    <div id="eye">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye" style="width: 1.3rem">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <input type="submit" value="Login" />
+              </div>
+
+              <footer>Powered By TKJ Class</footer>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Display (Optional) -->
+    <!-- $(if link-status)
+    <div class="status-info" style="position: fixed; top: 10px; right: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px; font-size: 12px;">
+      Status: <a href="$(link-status)">$(link-status-text)</a>
+    </div>
+    $(endif) -->
+
+    <!-- Logout Link (if already logged in) -->
+    <!-- $(if link-logout)
+    <div class="logout-info" style="position: fixed; top: 10px; left: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px; font-size: 12px;">
+      <a href="$(link-logout)">Logout</a>
+    </div>
+    $(endif) -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
