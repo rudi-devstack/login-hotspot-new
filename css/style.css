@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 body {
-  background: url('/img/motheboard.jpg');
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -57,7 +57,9 @@ body {
   display: flex;
   align-items: center;
 }
-.user, #eye-off, #eye {
+.user,
+#eye-off,
+#eye {
   width: 1.3rem;
 }
 .eye-cont {
@@ -99,56 +101,37 @@ body {
 .container .form input:last-child:hover {
   background: #1369ff;
 }
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary {
+  background: rgba(59, 130, 246, 0.8);
+  color: white;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+.btn-primary:hover {
+  background: rgba(59, 130, 246, 1);
+  transform: translateY(-1px);
+}
+.btn-danger {
+  background: rgba(239, 68, 68, 0.8);
+  color: white;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 1);
+  transform: translateY(-1px);
+}
 footer {
   font-size: 0.9rem;
-}
-
-/* Status */
-
-body.succes {
-  background-color: rgb(11, 28, 54);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.box {
-  width: 40%;
-  background-color: rgb(28, 68, 128);
-  color: white;
-  padding: 2.5rem 2rem;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-.box h1 {
-  font-size: 1.5rem;
-  margin: 10px 0 15px;
-}
-.box p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-.box button:hover {
-  background-color: rgb(10, 25, 47);
-}
-.succes .box img {
-  min-width: 80px;
-  max-width: 20%;
-}
-
-@media (max-width: 768px) {
-  .box {
-    width: 65%;
-  }
-  .box h1 {
-    font-size: 1.3rem;
-  }
-  .box p {
-    font-size: 13px;
-  }
-  .succes .box img {
-    min-width: 70px;
-  }
 }

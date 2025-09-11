@@ -94,18 +94,18 @@
     </div>
 
     <!-- Status Display (Optional) -->
-    <!-- $(if link-status)
-    <div class="status-info" style="position: fixed; top: 10px; right: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px; font-size: 12px;">
-      Status: <a href="$(link-status)">$(link-status-text)</a>
+    $(if link-status)
+    <div class="status-info" style="position: fixed; top: 10px; right: 10px;">
+      <a href="$(link-status)" class="btn btn-primary">Status: $(link-status-text)</a>
     </div>
-    $(endif) -->
+    $(endif)
 
     <!-- Logout Link (if already logged in) -->
-    <!-- $(if link-logout)
-    <div class="logout-info" style="position: fixed; top: 10px; left: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px; font-size: 12px;">
-      <a href="$(link-logout)">Logout</a>
+    $(if link-logout)
+    <div class="logout-info" style="position: fixed; top: 10px; left: 10px;">
+      <a href="$(link-logout)" class="btn btn-danger">Logout</a>
     </div>
-    $(endif) -->
+    $(endif)
 
     <script src="script.js"></script>
   </body>
