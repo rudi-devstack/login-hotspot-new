@@ -33,7 +33,7 @@ body {
   background: rgba(255, 255, 255, 0.15);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -44,18 +44,17 @@ body {
 
 .container .header .con {
   display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  margin-bottom: 13px;
 }
 
 .container .header img {
-  width: 7rem;
-  height: auto;
+  width: 8rem;
 }
 
 .container .header h2 {
   font-size: 1.8rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 0.5rem;
 }
 
@@ -72,20 +71,23 @@ body {
   position: relative;
 }
 
-.user,
+.user-cont,
 .eye-cont {
-  position: absolute;
-  right: 0;
-  margin-right: 14px;
   display: flex;
   align-items: center;
-  z-index: 1;
+  position: absolute;
+  right: 0;
+  z-index: 99;
+  height: 50%;
+  padding: 0 13px 0 10px;
+  border-left: 1.5px solid white;
+  border-radius: 0 5px 5px 0;
 }
 
-.user,
+#user,
 #eye-off,
 #eye {
-  width: 1.3rem;
+  width: 1.2rem;
 }
 
 .eye-cont {
@@ -136,42 +138,6 @@ body {
   transform: translateY(-1px);
 }
 
-.btn {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background: rgba(59, 130, 246, 0.8);
-  color: white;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.btn-primary:hover {
-  background: rgba(59, 130, 246, 1);
-  transform: translateY(-1px);
-}
-
-.btn-danger {
-  background: rgba(239, 68, 68, 0.8);
-  color: white;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.btn-danger:hover {
-  background: rgba(239, 68, 68, 1);
-  transform: translateY(-1px);
-}
-
 footer {
   font-size: 0.9rem;
   text-align: center;
@@ -185,9 +151,9 @@ footer {
   text-align: center;
   margin: 10px 0;
   padding: 10px;
-  background: rgba(255, 107, 107, 0.1);
+  background: rgba(255, 107, 107, 0.215);
   border-radius: 8px;
-  border: 1px solid rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.3);
   font-size: 14px;
 }
 
@@ -205,7 +171,7 @@ footer {
   }
 
   .container .header img {
-    width: 5rem;
+    width: 6rem;
   }
 
   .container .header h2 {
